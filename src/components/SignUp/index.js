@@ -1,8 +1,5 @@
-import React from 'react';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'; 
-import { compose } from 'recompose'; 
-
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
@@ -41,9 +38,10 @@ onSubmit = event => {
         })
         .catch(error => {
             this.setState({ error }); 
-        })
+        });
+
     event.preventDefault();   
-}
+};
 
 onChange = event => {
     this.setState({ [event.target.name]: event.target.value});
@@ -115,10 +113,7 @@ const SignUpLink = () => (
     </p>
 ); 
 
-const SignUpForm = compose (
-    withRouter,
-    withFirebase
-    )(SignUpFormBase);
+const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
 export default SignUpPage; 
 

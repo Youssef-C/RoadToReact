@@ -21,7 +21,7 @@ const config = {
         
 //      *** Auth API ***
         doCreateUserWithEmailAndPassword = (email, password) => 
-            this.auth.doCreateUserWithEmailAndPassword(email, password); 
+            this.auth.createUserWithEmailAndPassword(email, password); 
 
         doSignInWithEmailAndPassWord = (email, password) => 
             this.auth.signInWithEmailAndPassword(email, password);
